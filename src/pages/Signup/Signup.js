@@ -1,28 +1,33 @@
 import classNames from 'classnames/bind';
-import { EyeInvisibleTwoTone } from '@ant-design/icons';
+import { EyeTwoTone, EyeInvisibleTwoTone } from '@ant-design/icons';
 
+import styles from './Signup.module.scss';
 import logoTodo from '../../imgs/login/logo.svg';
-
-import styles from './Login.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Login() {
-    return (
-        <div className={cx('login')}>
+const Signup = () => {
+    return(
+        <div className={cx('signup')}>
             <div className={cx('grid wide')}>
-                <div className={cx('row no-gutters ')}>
-                <div className={cx(' col l-6 m-12 c-12 l-o-3') } >
-                <div className={cx('form-login')}>
+                <div className={cx('row no-gutters')}>
+                
+                    <div className={cx('col l-6 m-12 c-12 l-o-3')}>
+                    <div className={cx('formsignup')}>
                         <div className={cx('header')}>
                             <img src={logoTodo} style={{width: "400px"} } alt="Logo" />
                         </div>
 
                         <div className={cx('form')}>
                             <input
-                                type="Tài khoản"
+                                type="name"
                                 className={cx('form-input')}
-                                placeholder="Tài khoản"
+                                placeholder="Họ và tên"
+                            />
+                            <input
+                                type="email"
+                                className={cx('form-input')}
+                                placeholder="Email"
                             />
                             <div className={cx('form-input-wrapper')}>
                                 <input
@@ -32,8 +37,15 @@ function Login() {
                                 />
                                 <EyeInvisibleTwoTone className={cx('show-icon')} />
                             </div>
+                            <div className={cx('form-input-wrapper')}>
+                                <input
+                                    type="password"
+                                    className={cx('form-input')}
+                                    placeholder="Nhập lại mật khẩu"
+                                />
+                                <EyeInvisibleTwoTone className={cx('show-icon')} />
+                            </div>
 
-                            <div className={cx('form-options')}>
                                 <div className={cx('select-option')}>
                                     <input
                                         className={cx('select-option-input')}
@@ -43,29 +55,24 @@ function Login() {
                                     />
                                     <label
                                         className={cx('select-option-label')}
-                                        htmlFor="login-state"
                                     >
-                                        Ghi nhớ đăng nhập
+                                        Tôi đồng ý với các điều khoản trên
                                     </label>
                                 </div>
-                                <h3 className={cx('link-option')}>Quên mật khẩu?</h3>
-                            </div>
 
-                            <div className={cx('form-btn')}>Đăng nhập</div>
+                            <div className={cx('form-btn')}>Đăng ký</div>
                         </div>
 
-                        <div className={cx('navigate-sign-up')}>
-                            <span className={cx('navigate-sign-up-text')}>
-                                Bạn chưa có tài khoản? <a href="#">Đăng ký</a>
+                        <div className={cx('navigate-login')}>
+                            <span className={cx('navigate-login-text')}>
+                                Bạn đã có tài khoản? <a href="#">Đăng nhập</a>
                             </span>
                         </div>
                     </div>
-                    
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
-    );
+    )
 }
-
-export default Login;
+export default Signup;
