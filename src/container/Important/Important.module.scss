@@ -1,0 +1,79 @@
+.today {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 50px;
+    background-color: #e3e9ee;
+    padding-left: 30px;
+}
+
+.content {
+    height: 100%;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-title {
+        margin-left: -12px;
+        font-size: 4rem;
+        font-weight: 700;
+    }
+}
+
+.content-body {
+    margin-top: 16px;
+    flex: 1;
+}
+
+
+
+.taskdone-header {
+    font-size: medium;
+    font-weight: bold;
+    display: flex;
+    margin: 20px auto;
+
+}
+
+
+.icon-downOut {
+    transition-duration: 0.5s;
+    width: 16px;
+    height: 16px;
+    transform: rotate(-180deg);
+    transform: translateY(+5px);
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.icon-downUp {
+    transition-duration: 0.5s;
+    transform: translateY(+5px);
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
+
+

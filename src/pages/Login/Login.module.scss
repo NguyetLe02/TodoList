@@ -7,6 +7,11 @@
     align-items: center;
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+}
+
 .form-login{
     background-color: #fff;
     border: solid 1px #aaaaaa;
@@ -46,7 +51,7 @@
 .show-icon {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 60%;
     transform: translateY(-100%);
     font-size: 3rem;
     padding-right: 16px;
@@ -101,6 +106,7 @@
     font-size: 2.6rem;
     font-weight: 600;
     line-height: 5.2rem;
+    border-color: #6c8e60;
     border-radius: 10px;
     margin-bottom: 16px;
 

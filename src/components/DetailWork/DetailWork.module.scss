@@ -1,0 +1,42 @@
+.detail {
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detailWork-header {
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+
+}
+
+
+
+.icon-downOut {
+    transition-duration: 0.5s;
+    width: 16px;
+    height: 16px;
+    transform: rotate(-180deg);
+    transform: translateY(+5px);
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.icon-downUp {
+    transition-duration: 0.5s;
+    transform: translateY(+5px);
+    width: 16px;
+    height: 16px;
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
+}
