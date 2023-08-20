@@ -10,9 +10,8 @@ import TaskBar from '../../components/TaskBar/TaskBar';
 const cx = classNames.bind(styles);
 
 
-function Important() {
+function Important({tasks,setTasks}) {
     const [isOpenTaskdone, setIsOpenTaskdone] = useState(false);
-
     return (
         <div className={cx('today')} >
             <div className={cx('grid')} style={{ height: "100%" }}>
@@ -31,9 +30,9 @@ function Important() {
                                             <div className={cx('content-wrapper')}>
                                                 <div className={cx('selection')}>
                                                 
-                                                <TaskBar></TaskBar>
-                                                <TaskBar></TaskBar>
-                                                <TaskBar></TaskBar>
+                                                {tasks && tasks.map(item => {
+                                                    return <TaskBar key={item.id} event={item} setTasks={setTasks}></TaskBar>;
+                                                })}
                                                     
                                                 </div>
 

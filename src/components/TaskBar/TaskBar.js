@@ -12,14 +12,16 @@ import './library.scss'
 
 const cx = classNames.bind(styles);
 
-function TaskBar({ event, setListEvents }) {
+function TaskBar({ event ,setTasks}) {
     const navigate = useNavigate();
     const [done,setDone] = useState(false)
-    const [important,setImportant] = useState(false)
+    const [important,setImportant] = useState(event?.important)
 
     const handleChangeDone = (e) =>{
         setDone(e.target.checked);
     }
+
+    
 
     return (
         <>
@@ -29,8 +31,8 @@ function TaskBar({ event, setListEvents }) {
                     <div className={cx('content-checkbox')}>
                     <Checkbox value={done} onChange={e => handleChangeDone(e)}></Checkbox>
                     </div>
-                    <div className={cx('content-title')}>Name</div>
-                    <div className={cx('content-important')} onClick={() => setImportant(prev => !prev) }>
+                    <div className={cx('content-title')}>{event?.name}</div>
+                    <div className={cx('content-important')} onClick={() => setTasks([])}>
                     {important ?<StarFilled /> :<StarOutlined />}
                     
                     

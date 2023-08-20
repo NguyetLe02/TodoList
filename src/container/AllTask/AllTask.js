@@ -10,7 +10,7 @@ import TaskBar from '../../components/TaskBar/TaskBar';
 const cx = classNames.bind(styles);
 
 
-function AllTask() {
+function AllTask({tasks,setTasks }) {
     const [isOpenTaskdone, setIsOpenTaskdone] = useState(false);
 
     return (
@@ -31,10 +31,9 @@ function AllTask() {
                                             <div className={cx('content-wrapper')}>
                                                 <div className={cx('selection')}>
                                                 
-                                                <TaskBar></TaskBar>
-                                                <TaskBar></TaskBar>
-                                                <TaskBar></TaskBar>
-                                                    
+                                                {tasks && tasks.map(item => {
+                                                    return <TaskBar key={item.id} event={item} setTasks={setTasks}></TaskBar>;
+                                                })}
                                                 </div>
 
                                                 <div className={cx('taskdone')} onClick={() => setIsOpenTaskdone(!isOpenTaskdone)}>

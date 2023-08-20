@@ -4,6 +4,8 @@ import { EyeTwoTone, EyeInvisibleTwoTone } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+
 
 import logoTodo from '../../imgs/login/logo.svg';
 
@@ -24,20 +26,26 @@ function Login() {
     const handleChangePassword = (e) => {
         setPassword(e.target.value);
     };
-    const handleClickSubmit = (e) => {
+    const handleClickSubmit = async (e) => {
         e.preventDefault();
-        let listAccounts = localStorage.getItem("listAccounts")[0] ? JSON.parse(localStorage.getItem("listAccounts")) : [];
-        const user = listAccounts.filter((account) => mail === account.mail && password === account.password)
-        if (user && user[0]) {
-            localStorage.setItem("currentUserId", user[0].id);
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Đăng nhập thành công",
-                confirmButtonText: '<div class="fa fa-thumbs-up"}>OK</div>',
-            })
-            navigate("/");
+        if (mail && password) {
+            await axios.post("http://localhost:8800/login",{
+                account:mail, 
+                password:password,
+            }).then((res) =>{
+                if(res.data === "false") return;
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Đăng nhập thành công",
+                    confirmButtonText: '<div class="fa fa-thumbs-up"}>OK</div>',
+                })
+                navigate('/')
+            }).catch(errror => {
+                console.log(errror);
+            });
         }
+
     };
 
 

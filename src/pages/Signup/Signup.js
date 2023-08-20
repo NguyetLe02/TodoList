@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { EyeTwoTone, EyeInvisibleTwoTone } from '@ant-design/icons';
 import { Link, useNavigate } from "react-router-dom";
 import { Checkbox } from 'antd';
+import axios from 'axios';
 
 
 import styles from './Signup.module.scss';
@@ -47,23 +48,23 @@ const Signup = () => {
                 setIsEqualPassword(false);
                 return;
             }
-            let listAccounts = localStorage.getItem("listAccounts")[0] ? JSON.parse(localStorage.getItem("listAccounts")) : [];
-            listAccounts.push({
-                mail,
-                password,
-                userName,
-                id: Date.now()
-            })
-            localStorage.setItem("listAccounts", JSON.stringify(listAccounts));
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: "Đăng ký thành công",
-                confirmButtonText: '<div class="fa fa-thumbs-up"}>OK</div>',
-            }).then((result) => {
-                if (result.isConfirmed) setSuccess(true);
+            await axios.post("http://localhost:8800/signup",{
+                name:userName, 
+                account:mail, 
+                password:password,
+            }).then((res) =>{
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Đăng ký thành công",
+                    confirmButtonText: '<div class="fa fa-thumbs-up"}>OK</div>',
+                }).then((result) => {
+                    if (result.isConfirmed) setSuccess(true);
+                });
+                navigate('/Login')
+            }).catch(errror => {
+                console.log(errror);
             });
-            navigate('/Login')
         }
     };
 
